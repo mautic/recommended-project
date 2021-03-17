@@ -1,0 +1,71 @@
+{
+  "name": "mautic/recommended-project",
+  "description": "Project template for Mautic 3 projects with composer",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "",
+      "role": ""
+    }
+  ],
+  "require": {
+    "composer/installers": "^1.9",
+    "mautic/core-composer-scaffold": "dev-master",
+    "mautic/core-project-message": "dev-master",
+    "mautic/core-recommended": "dev-master"
+  },
+  "conflict": {
+    "mautic/mautic": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "mautic-scaffold": {
+      "locations": {
+        "web-root": "web/"
+      }
+    },
+    "installer-paths": {
+      "web": [
+        "type:mautic-core"
+      ],
+      "web/plugins/contrib/{$name}": [
+        "type:mautic-plugin"
+      ],
+      "web/themes/contrib/{$name}": [
+        "type:mautic-theme"
+      ],
+      "web/plugins/custom/{$name}": [
+        "type:mautic-custom-plugin"
+      ],
+      "web/themes/custom/{$name}": [
+        "type:mautic-custom-theme"
+      ]
+    },
+    "mautic-core-project-message": {
+      "include-keys": [
+        "homepage",
+        "support"
+      ],
+      "post-create-project-cmd-message": [
+        "<bg=blue;fg=white>                                                         </>",
+        "<bg=blue;fg=white>  Congratulations, you’ve installed the Mautic codebase  </>",
+        "<bg=blue;fg=white>  from the mautic/recommended-project template!          </>",
+        "<bg=blue;fg=white>                                                         </>",
+        "",
+        "<bg=yellow;fg=black>Next steps</>:",
+        "  * Install Mautic",
+        "  * Read the user guide",
+        "  * Get support: https://www.mautic.org/support",
+        "  * Get involved with the Mautic community:",
+        "      https://www.mautic.org/getting-involved",
+        "  * Remove the plugin that prints this message:",
+        "      composer remove drupal/core-project-message"
+      ]
+    }
+  }
+}
