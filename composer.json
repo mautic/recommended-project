@@ -9,6 +9,12 @@
       "role": ""
     }
   ],
+  "repositories": [
+      {
+          "type": "composer",
+          "url": "http://mautic-composer-test.localhost:8080/local-packagist/"
+      }
+  ],
   "require": {
     "composer/installers": "^1.9",
     "mautic/core-composer-scaffold": "dev-master",
@@ -21,7 +27,8 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "secure-http": false
   },
   "extra": {
     "mautic-scaffold": {
