@@ -9,11 +9,14 @@
       "role": ""
     }
   ],
+  "require": {
+    "composer/installers": "^1.10",
+    "mautic/core-composer-scaffold": "3.x-dev",
+    "mautic/core-project-message": "3.x-dev",
+    "mautic/core-recommended": "3.x-dev",
+    "mautic/core-dev": "3.x-dev"
+  },
   "repositories": [
-    {
-      "type": "composer",
-      "url": "http://mautic-composer-test.localhost:8080/local-packagist/"
-    },
     {
       "type": "git",
       "url": "https://github.com/mautic/BazingaOAuthServerBundle.git"
@@ -21,15 +24,31 @@
     {
       "type": "git",
       "url": "https://github.com/mautic/intl.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/mautic/core.git"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "mautic/plugin-grapesjs-builder",
+        "version": "1.0-RC4",
+        "type": "mautic-plugin",
+        "source": {
+          "url": "https://github.com/mautic/plugin-grapesjs-builder.git",
+          "type": "git",
+          "reference": "1.0-RC4"
+        },
+        "require": {
+          "composer/installers": "~1.0"
+        },
+        "extra": {
+          "installer-name": "GrapesJsBuilderBundle"
+        }
+      }
     }
   ],
-  "require": {
-    "composer/installers": "dev-master",
-    "mautic/core-composer-scaffold": "dev-master",
-    "mautic/core-project-message": "dev-master",
-    "mautic/core-recommended": "dev-master",
-    "mautic/core-dev": "dev-master"
-  },
   "conflict": {
     "mautic/mautic": "*"
   },
@@ -60,6 +79,9 @@
       "docroot/themes/{$name}": [
         "type:mautic-theme"
       ]
+    },
+    "patches": {
+      "composer/installers": "https://github.com/composer/installers/compare/main...nickveenhof:patch-2.diff"
     },
     "mautic-core-project-message": {
       "include-keys": [
