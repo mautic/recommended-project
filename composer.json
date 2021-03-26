@@ -21,32 +21,14 @@
     {
       "type": "git",
       "url": "https://github.com/mautic/intl.git"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "mautic/grapejs-builder",
-        "version": "1.0-RC4",
-        "type": "mautic-plugin",
-        "source": {
-          "url": "https://github.com/mautic/plugin-grapesjs-builder.git",
-          "type": "git",
-          "reference": "1.0-RC4"
-        },
-        "require": {
-          "composer/installers": "~1.0"
-        },
-        "extra": {
-          "installer-name": "GrapesJsBuilderBundle"
-        }
-      }
     }
   ],
   "require": {
-    "composer/installers": "^1.9",
+    "composer/installers": "dev-master",
     "mautic/core-composer-scaffold": "dev-master",
     "mautic/core-project-message": "dev-master",
-    "mautic/core-recommended": "dev-master"
+    "mautic/core-recommended": "dev-master",
+    "mautic/core-dev": "dev-master"
   },
   "conflict": {
     "mautic/mautic": "*"
@@ -57,27 +39,26 @@
     "sort-packages": true,
     "secure-http": false
   },
+  "autoload": {
+    "psr-4": {
+      "MauticPlugin\\": "docroot/plugins/"
+    }
+  },
   "extra": {
     "mautic-scaffold": {
       "locations": {
-        "web-root": "web/"
+        "web-root": "docroot/"
       }
     },
     "installer-paths": {
-      "web": [
+      "docroot/app": [
         "type:mautic-core"
       ],
-      "web/plugins/contrib/{$name}": [
+      "docroot/plugins/{$name}": [
         "type:mautic-plugin"
       ],
-      "web/themes/contrib/{$name}": [
+      "docroot/themes/{$name}": [
         "type:mautic-theme"
-      ],
-      "web/plugins/custom/{$name}": [
-        "type:mautic-custom-plugin"
-      ],
-      "web/themes/custom/{$name}": [
-        "type:mautic-custom-theme"
       ]
     },
     "mautic-core-project-message": {
