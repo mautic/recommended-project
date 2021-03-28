@@ -1,6 +1,6 @@
 {
   "name": "mautic/recommended-project",
-  "description": "Project template for Mautic 3 projects with composer",
+  "description": "Project template for Mautic 4 projects with composer",
   "type": "project",
   "license": "GPL-2.0-or-later",
   "authors": [
@@ -11,19 +11,15 @@
   ],
   "require": {
     "composer/installers": "^1.10",
-    "mautic/core-composer-scaffold": "3.x-dev",
-    "mautic/core-project-message": "3.x-dev",
-    "mautic/core-recommended": "3.x-dev",
-    "mautic/core-dev": "3.x-dev"
+    "mautic/core-composer-scaffold": "4.x-dev",
+    "mautic/core-project-message": "4.x-dev",
+    "mautic/core-recommended": "4.x-dev",
+    "mautic/core-dev": "4.x-dev"
   },
   "repositories": [
     {
       "type": "git",
       "url": "https://github.com/mautic/BazingaOAuthServerBundle.git"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/mautic/intl.git"
     },
     {
       "type": "package",
