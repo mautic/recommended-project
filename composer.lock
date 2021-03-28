@@ -5816,12 +5816,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/core.git",
-                "reference": "407800821696e34dfdd67f360cfc72e3b597d722"
+                "reference": "8f56da9a824aeabea521ed4a1b5af5eb5f61c9ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mautic/core/zipball/407800821696e34dfdd67f360cfc72e3b597d722",
-                "reference": "407800821696e34dfdd67f360cfc72e3b597d722",
+                "url": "https://api.github.com/repos/mautic/core/zipball/8f56da9a824aeabea521ed4a1b5af5eb5f61c9ab",
+                "reference": "8f56da9a824aeabea521ed4a1b5af5eb5f61c9ab",
                 "shasum": ""
             },
             "require": {
@@ -5836,7 +5836,6 @@
                 "doctrine/doctrine-fixtures-bundle": "~3.3.0",
                 "doctrine/doctrine-migrations-bundle": "~2.1",
                 "doctrine/orm": "2.7.0",
-                "ext-imap": "*",
                 "ext-zip": "^1.15",
                 "ext-zlib": "^7.2",
                 "friendsofsymfony/oauth-server-bundle": "~1.6.0",
@@ -6007,7 +6006,7 @@
                 "issues": "https://github.com/mautic/core/issues",
                 "source": "https://github.com/mautic/core/tree/4.x"
             },
-            "time": "2021-03-27T22:22:29+00:00"
+            "time": "2021-03-28T09:34:59+00:00"
         },
         {
             "name": "mautic/core-project-message",
