@@ -5816,12 +5816,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/core.git",
-                "reference": "0fd1f1e4e01c3090852f0a46f45ec1a19b016e3f"
+                "reference": "407800821696e34dfdd67f360cfc72e3b597d722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mautic/core/zipball/0fd1f1e4e01c3090852f0a46f45ec1a19b016e3f",
-                "reference": "0fd1f1e4e01c3090852f0a46f45ec1a19b016e3f",
+                "url": "https://api.github.com/repos/mautic/core/zipball/407800821696e34dfdd67f360cfc72e3b597d722",
+                "reference": "407800821696e34dfdd67f360cfc72e3b597d722",
                 "shasum": ""
             },
             "require": {
@@ -6007,7 +6007,7 @@
                 "issues": "https://github.com/mautic/core/issues",
                 "source": "https://github.com/mautic/core/tree/4.x"
             },
-            "time": "2021-03-27T22:17:09+00:00"
+            "time": "2021-03-27T22:22:29+00:00"
         },
         {
             "name": "mautic/core-project-message",
@@ -6057,12 +6057,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mautic/core-recommended.git",
-                "reference": "6fa88927399207d261d19cad96709d44fa91fa26"
+                "reference": "15c3ec1bdc44038787d7d845c87e9f2d15e19dc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mautic/core-recommended/zipball/6fa88927399207d261d19cad96709d44fa91fa26",
-                "reference": "6fa88927399207d261d19cad96709d44fa91fa26",
+                "url": "https://api.github.com/repos/mautic/core-recommended/zipball/15c3ec1bdc44038787d7d845c87e9f2d15e19dc0",
+                "reference": "15c3ec1bdc44038787d7d845c87e9f2d15e19dc0",
                 "shasum": ""
             },
             "require": {
@@ -6077,7 +6077,6 @@
                 "doctrine/doctrine-fixtures-bundle": "~3.3.0",
                 "doctrine/doctrine-migrations-bundle": "~2.1",
                 "doctrine/orm": "2.7.0",
-                "ext-imap": "*",
                 "ext-zip": "^1.15",
                 "ext-zlib": "^7.2",
                 "friendsofsymfony/oauth-server-bundle": "~1.6.0",
@@ -6184,7 +6183,7 @@
                 "issues": "https://github.com/mautic/core-recommended/issues",
                 "source": "https://github.com/mautic/core-recommended/tree/4.x"
             },
-            "time": "2021-03-27T21:25:09+00:00"
+            "time": "2021-03-28T09:35:21+00:00"
         },
         {
             "name": "mautic/plugin-citrix",
