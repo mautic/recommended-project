@@ -139,7 +139,7 @@
         "  * Get involved with the Mautic community:",
         "      https://www.mautic.org/getting-involved",
         "  * Remove the plugin that prints this message:",
-        "      composer remove drupal/core-project-message"
+        "      composer remove mautic/core-project-message"
       ]
     }
   }
