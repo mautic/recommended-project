@@ -3,6 +3,12 @@
   "description": "Project template for Mautic 3 projects with composer",
   "type": "project",
   "license": "GPL-2.0-or-later",
+  "homepage": "https://www.mautic.org/mautic-releases",
+  "support": {
+    "user-docs": "https://docs.mautic.org/en",
+    "developer-docs": "https://developer.mautic.org",
+    "chat": "https://www.mautic.org/slack"
+  },
   "authors": [
     {
       "name": "",
