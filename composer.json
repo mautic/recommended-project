@@ -3,6 +3,12 @@
   "description": "Project template for Mautic 4 projects with composer",
   "type": "project",
   "license": "GPL-2.0-or-later",
+  "homepage": "https://www.mautic.org/mautic-releases",
+  "support": {
+    "user-docs": "https://docs.mautic.org/en",
+    "developer-docs": "https://developer.mautic.org",
+    "chat": "https://www.mautic.org/slack"
+  },
   "authors": [
     {
       "name": "",
@@ -139,7 +145,7 @@
         "  * Get involved with the Mautic community:",
         "      https://www.mautic.org/getting-involved",
         "  * Remove the plugin that prints this message:",
-        "      composer remove drupal/core-project-message"
+        "      composer remove mautic/core-project-message"
       ]
     }
   }
