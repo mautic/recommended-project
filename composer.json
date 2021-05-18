@@ -9,6 +9,16 @@
     "developer-docs": "https://developer.mautic.org",
     "chat": "https://www.mautic.org/slack"
   },
+  "funding": [
+    {
+      "type": "other",
+      "url": "https://opencollective.com/mautic"
+    },
+    {
+      "type": "other",
+      "url": "https://github.com/sponsors/mautic"
+    }
+  ],
   "authors": [
     {
       "name": "",
