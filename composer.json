@@ -29,7 +29,7 @@
     "composer/installers": "^1.11",
     "mautic/core-composer-scaffold": "4.x-dev",
     "mautic/core-project-message": "4.x-dev",
-    "mautic/core-lib": "features-dev",
+    "mautic/core-lib": "features-dev"
   },
   "repositories": [
     {
