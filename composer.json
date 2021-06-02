@@ -29,7 +29,7 @@
     "composer/installers": "^1.11",
     "mautic/core-composer-scaffold": "4.x-dev",
     "mautic/core-project-message": "4.x-dev",
-    "mautic/core-lib": "features-dev",
+    "mautic/core-lib": "no-more-plugin-replaces-dev",
     "mautic/grapes-js-builder-bundle": "features-dev",
     "mautic/plugin-citrix": "features-dev",
     "mautic/plugin-clearbit": "features-dev",
@@ -73,6 +73,10 @@
     {
       "type": "git",
       "url": "https://github.com/dennisameling/FOSOAuthServerBundle.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/nickveenhof/core-lib.git"
     }
   ],
   "conflict": {
