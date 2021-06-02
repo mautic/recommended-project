@@ -29,7 +29,7 @@
     "composer/installers": "^1.11",
     "mautic/core-composer-scaffold": "4.x-dev",
     "mautic/core-project-message": "4.x-dev",
-    "mautic/core-lib": "no-more-plugin-replaces-dev",
+    "mautic/core-lib": "dev-no-more-plugin-replaces as 4.0",
     "mautic/grapes-js-builder-bundle": "features-dev",
     "mautic/plugin-citrix": "features-dev",
     "mautic/plugin-clearbit": "features-dev",
@@ -45,7 +45,6 @@
     "mautic/plugin-zapier": "features-dev",
     "mautic/theme-aurora": "features-dev",
     "mautic/theme-blank": "features-dev",
-    "mautic/theme-blank-grapejs": "features-dev",
     "mautic/theme-brienz": "features-dev",
     "mautic/theme-cards": "features-dev",
     "mautic/theme-coffee": "features-dev",
@@ -55,7 +54,6 @@
     "mautic/theme-fresh-left": "features-dev",
     "mautic/theme-fresh-wide": "features-dev",
     "mautic/theme-goldstar": "features-dev",
-    "mautic/theme-mauve": "features-dev",
     "mautic/theme-nature": "features-dev",
     "mautic/theme-neopolitan": "features-dev",
     "mautic/theme-oxygen": "features-dev",
@@ -63,7 +61,9 @@
     "mautic/theme-skyline": "features-dev",
     "mautic/theme-sparse": "features-dev",
     "mautic/theme-sunday": "features-dev",
-    "mautic/theme-vibrant": "features-dev"
+    "mautic/theme-vibrant": "features-dev",
+    "mautic/theme-blank-grapejs": "main-dev",
+    "mautic/theme-mauve": "main-dev"
   },
   "repositories": [
     {
