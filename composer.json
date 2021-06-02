@@ -62,8 +62,8 @@
     "mautic/theme-sparse": "features-dev",
     "mautic/theme-sunday": "features-dev",
     "mautic/theme-vibrant": "features-dev",
-    "mautic/theme-blank-grapejs": "main-dev",
-    "mautic/theme-mauve": "main-dev"
+    "mautic/theme-mauve": "features-dev",
+    "mautic/theme-blank-grapejs": "main-dev"
   },
   "repositories": [
     {
