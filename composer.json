@@ -62,7 +62,8 @@
     "mautic/theme-skyline": "features-dev",
     "mautic/theme-sparse": "features-dev",
     "mautic/theme-sunday": "features-dev",
-    "mautic/theme-vibrant": "features-dev"
+    "mautic/theme-vibrant": "features-dev",
+    "mautic/theme-trulypersonal": "features-dev"
   },
   "repositories": [
     {
