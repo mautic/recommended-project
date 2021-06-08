@@ -29,7 +29,7 @@
     "composer/installers": "^1.11",
     "mautic/core-composer-scaffold": "4.x-dev",
     "mautic/core-project-message": "4.x-dev",
-    "mautic/core-lib": "features-dev",
+    "mautic/core-lib": "features-dev as 4.0",
     "mautic/grapes-js-builder-bundle": "features-dev",
     "mautic/plugin-citrix": "features-dev",
     "mautic/plugin-clearbit": "features-dev",
