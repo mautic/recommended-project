@@ -123,3 +123,30 @@ To prevent this you can add this code to specify the PHP version you want to use
     }
 },
 ```
+
+### How do I use another folder than docroot as webroot
+
+By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `docroot` folder.  
+It is possible to change this folder to your own needs.
+
+In following examples, we will change `docroot` into `public`.
+
+##### New installations
+
+* Run the `create-project` command without installing  
+  ```bash
+  composer create-project mautic/recommended-project:^4.0 some-dir --no-interaction --no-install
+  ```
+* Do a find and replace in the `composer.json` file to change `docroot/` into `public/`.
+* Review the changes in the `composer.json` file to ensure there are no unintentional replacements.
+* Run `composer install` to install all dependencies in the correct location.
+
+##### Existing installations
+
+* move the `docroot/` to `public/`
+  ```bash
+  mv docroot public
+  ```
+* Do a find and replace in the `composer.json` file to change `docroot/` into `public/`.
+* review the changes in the `composer.json` file to ensure there are no unintentional replacements.
+* run `composer update --lock` to ensure the autoloader is aware of the changed folder.
