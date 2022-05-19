@@ -33,12 +33,12 @@ all files not excluded by the .gitignore file.
 
 When installing the given `composer.json` some tasks are taken care of:
 
-* Mautic will be installed in the `public`-directory.
+* Mautic will be installed in the `docroot`-directory.
 * Autoloader is implemented to use the generated composer autoloader in `vendor/autoload.php`,
-  instead of the one provided by Mautic (`public/vendor/autoload.php`).
-* Plugins (packages of type `mautic-plugin`) will be placed in `public/plugins/`
-* Themes (packages of type `mautic-theme`) will be placed in `public/themes/`
-* Creates `public/media`-directory.
+  instead of the one provided by Mautic (`docroot/vendor/autoload.php`).
+* Plugins (packages of type `mautic-plugin`) will be placed in `docroot/plugins/`
+* Themes (packages of type `mautic-theme`) will be placed in `docroot/themes/`
+* Creates `docroot/media`-directory.
 * Creates environment variables based on your .env file. See [.env.example](.env.example).
 
 ## Updating Mautic Core
@@ -56,7 +56,7 @@ Follow the steps below to update your core files.
 2. Run `git diff` to determine if any of the scaffolding files have changed.
    Review the files for any changes and restore any customizations to
   `.htaccess` or others.
-1. Commit everything all together in a single commit, so `public` will remain in
+1. Commit everything all together in a single commit, so `docroot` will remain in
    sync with the `core` when checking out branches or running `git bisect`.
 1. In the event that there are non-trivial conflicts in step 2, you may wish
    to perform these steps on a branch, and use `git merge` to combine the
@@ -75,7 +75,7 @@ workrounds if a project decides to do it anyway](https://getcomposer.org/doc/faq
 ### Should I commit the scaffolding files?
 
 The [Mautic Composer Scaffold](https://github.com/mautic/core-composer-scaffold) plugin can download the scaffold files (like
-index.php, .htaccess, …) to the public/ directory of your project. If you have not customized those files you could choose
+index.php, .htaccess, …) to the docroot/ directory of your project. If you have not customized those files you could choose
 to not check them into your version control system (e.g. git). If that is the case for your project it might be
 convenient to automatically run the mautic-scaffold plugin after every install or update of your project. You can
 achieve that by registering `@composer mautic:scaffold` as post-install and post-update command in your composer.json:
@@ -123,3 +123,30 @@ To prevent this you can add this code to specify the PHP version you want to use
     }
 },
 ```
+
+### How do I use another folder than docroot as webroot
+
+By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `docroot` folder.  
+It is possible to change this folder to your own needs.
+
+In following examples, we will change `docroot` into `public`.
+
+##### New installations
+
+* Run the `create-project` command without installing  
+  ```bash
+  composer create-project mautic/recommended-project:^4.0 some-dir --no-interaction --no-install
+  ```
+* Do a find and replace in the `composer.json` file to change `docroot/` into `public/`.
+* Review the changes in the `composer.json` file to ensure there are no unintentional replacements.
+* Run `composer install` to install all dependencies in the correct location.
+
+##### Existing installations
+
+* move the `docroot/` to `public/`
+  ```bash
+  mv docroot public
+  ```
+* Do a find and replace in the `composer.json` file to change `docroot/` into `public/`.
+* review the changes in the `composer.json` file to ensure there are no unintentional replacements.
+* run `composer update --lock` to ensure the autoloader is aware of the changed folder.
