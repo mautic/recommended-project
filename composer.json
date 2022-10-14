@@ -79,7 +79,12 @@
   "prefer-stable": true,
   "config": {
     "sort-packages": true,
-    "secure-http": false
+    "allow-plugins": {
+      "composer/installers": true,
+      "symfony/flex": true,
+      "mautic/core-composer-scaffold": true,
+      "mautic/core-project-message": true
+    }
   },
   "autoload": {
     "psr-4": {
