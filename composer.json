@@ -83,7 +83,8 @@
       "composer/installers": true,
       "symfony/flex": true,
       "mautic/core-composer-scaffold": true,
-      "mautic/core-project-message": true
+      "mautic/core-project-message": true,
+      "php-http/discovery": true
     }
   },
   "autoload": {
