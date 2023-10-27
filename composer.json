@@ -99,6 +99,21 @@
       "MauticPlugin\\": "docroot/plugins/"
     }
   },
+  "scripts": {
+    "post-install-cmd": [
+      "@npm-ci",
+      "@npx-patch-package",
+      "@generate-assets"
+    ],
+    "post-update-cmd": [
+      "@npm-ci",
+      "@npx-patch-package",
+      "@generate-assets"
+    ],
+    "npm-ci": "npm ci --prefer-offline --no-audit",
+    "npx-patch-package": "npx patch-package",
+    "generate-assets": "php bin/console mautic:assets:generate"
+  },
   "extra": {
     "mautic-scaffold": {
       "locations": {
