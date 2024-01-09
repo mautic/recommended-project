@@ -17,12 +17,12 @@ After that you can create the project:
 composer create-project mautic/recommended-project:^5.0 some-dir --no-interaction
 ```
 
-With `composer require ...` you can download new dependencies to your
-installation.
+With `composer require ...` you can download new dependencies to your installation.
 
+Example of installing a plugin:
 ```
 cd some-dir
-composer require mautic/mautic-saelos-bundle:~2.0
+composer require mautic/helloworld-bundle
 ```
 
 The `composer create-project` command passes ownership of all files to the
