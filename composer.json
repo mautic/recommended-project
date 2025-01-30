@@ -124,7 +124,12 @@
     ],
     "npm-ci": "npm ci --prefer-offline --no-audit",
     "npx-patch-package": "npx patch-package",
-    "generate-assets": "@php bin/console mautic:assets:generate"
+    "generate-assets": "@php bin/console mautic:assets:generate",
+    "migrate-webroot": [
+      "@php -r \"if (!is_dir('docroot')) { echo 'ERROR: Directory docroot/ not found. Already migrated? Exiting.' . PHP_EOL; exit(1); } if (is_dir('public')) { echo 'ERROR: Directory public/ already exists. Already migrated? Exiting.' . PHP_EOL; exit(1); } rename('docroot', 'public');\"",
+      "@php -r \"\\$file='composer.json'; copy(\\$file, \\$file.'.backup'); \\$content = file_get_contents(\\$file); \\$content = preg_replace('/\\\"web-root\\\": \\\"docroot\\//','\\\"web-root\\\": \\\"public/', \\$content); \\$content = preg_replace('/\\\"docroot\\/app\\\": \\[/', '\\\"public/app\\\": [', \\$content); \\$content = preg_replace('/\\\"docroot\\/plugins\\/\\{\\\\\\$name\\}\\\": \\[/', '\\\"public/plugins/{\\\\\\$name}\\\": [', \\$content); \\$content = preg_replace('/\\\"docroot\\/themes\\/\\{\\\\\\$name\\}\\\": \\[/', '\\\"public/themes/{\\\\\\$name}\\\": [', \\$content); file_put_contents(\\$file, \\$content);\"",
+      "@php -r \"\\$file='config/local.php'; copy(\\$file, \\$file.'.backup'); \\$content = file_get_contents(\\$file); \\$content = preg_replace('/(\\'[^\\']+\\'\\s*=>\\s*\\')(.*?)\\/docroot\\/media(.*?\\')/', '\\1\\2/public/media\\3', \\$content); file_put_contents(\\$file, \\$content);\""
+    ]
   },
   "extra": {
     "mautic-scaffold": {

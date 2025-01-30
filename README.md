@@ -56,9 +56,9 @@ Follow the steps below to update your core files.
 2. Run `git diff` to determine if any of the scaffolding files have changed.
    Review the files for any changes and restore any customizations to
   `.htaccess` or others.
-1. Commit everything all together in a single commit, so `public/` will remain in
+3. Commit everything all together in a single commit, so `public/` will remain in
    sync with the `core` when checking out branches or running `git bisect`.
-1. In the event that there are non-trivial conflicts in step 2, you may wish
+4. In the event that there are non-trivial conflicts in step 2, you may wish
    to perform these steps on a branch, and use `git merge` to combine the
    updated core files with your customized files. This facilitates the use
    of a [three-way merge tool such as kdiff3](http://www.gitshah.com/2010/12/how-to-setup-kdiff-as-diff-tool-for-git.html). This setup is not necessary if your changes are simple;
@@ -132,27 +132,28 @@ composer config platform.php 8.2
 
 ### How do I use another folder than docroot as webroot?
 
-By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `public/` folder.  
-It is possible to change this folder to your own needs.
+By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `public/` directory.  
+It is possible to change this directory to your own needs.
 
-In following examples, we will change `public/` into `public_html/`.
+In following examples, we will change `public/` into `docroot/`.
 
 #### New installations
 
-* Run the `create-project` command without installing  
+* Run the `create-project` command without installing
   ```bash
   composer create-project mautic/recommended-project:^7.0 some-dir --no-interaction --no-install
   ```
-* Do a find and replace in the `composer.json` file to change `public/` into `public_html/`.
+* Do a find and replace in the `composer.json` file to change `public/` into `docroot/`.
 * Review the changes in the `composer.json` file to ensure there are no unintentional replacements.
 * Run `composer install` to install all dependencies in the correct location.
 
 #### Existing installations
 
-* move the `public/` to `public_html/`
+* Move the `public/` to `docroot/`
   ```bash
-  mv public public_html
+  mv public docroot
   ```
-* Do a find and replace in the `composer.json` file to change `public/` into `public_html/`.
-* review the changes in the `composer.json` file to ensure there are no unintentional replacements.
-* run `composer update --lock` to ensure the autoloader is aware of the changed folder.
+* Do a find and replace in the `composer.json` file to change `public/` into `docroot/`.
+* Review the changes in the `composer.json` file to ensure there are no unintentional replacements.
+* Run `composer update --lock` to ensure the autoloader is aware of the changed directory.
+* Ensure that config parameters related to the `media` directory in the `config/local.php` file point to the correct directory (`docroot/media` instead of `public/media`)
