@@ -128,8 +128,7 @@ Alternatively, you can run the following command:
 composer config platform.php 8.2
 ```
 
-
-### How do I use another folder than docroot as webroot?
+### How do I use another folder than `public` as webroot?
 
 By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `public/` directory.  
 It is possible to change this directory to your own needs.
