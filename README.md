@@ -117,7 +117,6 @@ This project supports PHP 8.2 as the minimum version (see [Mautic requirements](
 To prevent this, you can specify the PHP version in the `config` section of `composer.json` by adding the following code:
 ```json
 "config": {
-    "sort-packages": true,
     "platform": {
         "php": "8.2"
     }
