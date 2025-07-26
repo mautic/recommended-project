@@ -81,7 +81,13 @@
     "mautic/theme-survey": "6.x-dev",
     "mautic/theme-trulypersonal": "6.x-dev",
     "mautic/theme-vibrant": "6.x-dev",
-    "mautic/theme-welcome": "6.x-dev"
+    "mautic/theme-welcome": "6.x-dev",
+    "symfony/postmark-mailer": "^6.0",
+        "symfony/brevo-mailer": "^6.0",
+        "symfony/amazon-mailer": "^6.0",
+        "symfony/mailgun-mailer": "^6.0",
+        "symfony/mailtrap-mailer": "^6.0",
+        "symfony/sendgrid-mailer": "^6.0"
   },
   "repositories": [
     {
