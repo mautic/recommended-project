@@ -83,11 +83,11 @@
     "mautic/theme-vibrant": "6.x-dev",
     "mautic/theme-welcome": "6.x-dev",
     "symfony/postmark-mailer": "^6.0",
-        "symfony/brevo-mailer": "^6.0",
-        "symfony/amazon-mailer": "^6.0",
-        "symfony/mailgun-mailer": "^6.0",
-        "symfony/mailtrap-mailer": "^6.0",
-        "symfony/sendgrid-mailer": "^6.0"
+    "symfony/brevo-mailer": "^6.0",
+    "symfony/amazon-mailer": "^6.0",
+    "symfony/mailgun-mailer": "^6.0",
+    "symfony/mailtrap-mailer": "^6.0",
+    "symfony/sendgrid-mailer": "^6.0"
   },
   "repositories": [
     {
@@ -109,6 +109,9 @@
       "mautic/core-composer-scaffold": true,
       "mautic/core-project-message": true,
       "php-http/discovery": true
+    },
+    "platform": {
+      "php": "8.2"
     }
   },
   "autoload": {
@@ -155,7 +158,7 @@
       ],
       "post-create-project-cmd-message": [
         "<bg=blue;fg=white>                                                         </>",
-        "<bg=blue;fg=white>  Congratulations, you’ve installed the Mautic codebase  </>",
+        "<bg=blue;fg=white>  Congratulations, you've installed the Mautic codebase  </>",
         "<bg=blue;fg=white>  from the mautic/recommended-project template!          </>",
         "<bg=blue;fg=white>                                                         </>",
         "",
