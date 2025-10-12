@@ -74,7 +74,15 @@
     "mautic/theme-showcase": "5.x-dev",
     "mautic/theme-simple-text": "5.x-dev",
     "mautic/theme-survey": "5.x-dev",
-    "mautic/theme-welcome": "5.x-dev"
+    "mautic/theme-welcome": "5.x-dev",
+    "symfony/mailer": "^8.0",
+    "symfony/sendgrid-mailer": "^8.0",
+    "symfony/mailgun-mailer": "^8.0",
+    "symfony/postmark-mailer": "^8.0",
+    "symfony/sparkpost-mailer": "^8.0",
+    "symfony/amazon-mailer": "^8.0",
+    "aws/aws-sdk-php": "^3.0",
+    "symfony/mailjet-mailer": "^8.0"
   },
   "repositories": [
     {
@@ -153,7 +161,7 @@
         "<bg=blue;fg=white>  Congratulations, you’ve installed the Mautic codebase  </>",
         "<bg=blue;fg=white>  from the mautic/recommended-project template!          </>",
         "<bg=blue;fg=white>                                                         </>",
-        "",
+        "", 
         "<bg=yellow;fg=black>Next steps</>:",
         "  * Install Mautic",
         "  * Read the user guide",
