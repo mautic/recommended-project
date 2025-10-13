@@ -5,7 +5,7 @@ dependencies with [Composer](https://getcomposer.org/).
 
 ## Usage
 
-First you need to [install composer 2](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+First you need to install [Composer v2](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
 > Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
 You might need to replace `composer` with `php composer.phar` (or similar)
@@ -14,7 +14,7 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project mautic/recommended-project:^5.0 some-dir --no-interaction
+composer create-project mautic/recommended-project:^7.0 some-dir --no-interaction
 ```
 
 With `composer require ...` you can download new dependencies to your installation.
@@ -110,38 +110,44 @@ section of composer.json:
 }
 ```
 
-### How do I specify a PHP version ?
+### How do I specify a PHP version?
 
-This project supports PHP 7.4 as minimum version, however it's possible that a `composer update` will upgrade some package that will then require PHP 7+ or 8+.
+This project supports PHP 8.2 as the minimum version (see [Mautic requirements](https://mautic.org/mautic-requirements/)). However, running a `composer update` may upgrade some package that will require a higher PHP version.
 
-To prevent this you can add this code to specify the PHP version you want to use in the `config` section of `composer.json`:
+To prevent this, you can specify the PHP version in the `config` section of `composer.json` by adding the following code:
 ```json
 "config": {
     "sort-packages": true,
     "platform": {
-        "php": "7.4"
+        "php": "8.2"
     }
 },
 ```
 
-### How do I use another folder than docroot as webroot
+Alternatively, you can run the following command:
+```bash
+composer config platform.php 8.2
+```
+
+
+### How do I use another folder than docroot as webroot?
 
 By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `docroot` folder.  
 It is possible to change this folder to your own needs.
 
 In following examples, we will change `docroot` into `public`.
 
-##### New installations
+#### New installations
 
 * Run the `create-project` command without installing  
   ```bash
-  composer create-project mautic/recommended-project:^4.0 some-dir --no-interaction --no-install
+  composer create-project mautic/recommended-project:^7.0 some-dir --no-interaction --no-install
   ```
 * Do a find and replace in the `composer.json` file to change `docroot/` into `public/`.
 * Review the changes in the `composer.json` file to ensure there are no unintentional replacements.
 * Run `composer install` to install all dependencies in the correct location.
 
-##### Existing installations
+#### Existing installations
 
 * move the `docroot/` to `public/`
   ```bash

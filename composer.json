@@ -161,7 +161,7 @@
         "<bg=blue;fg=white>  Congratulations, you’ve installed the Mautic codebase  </>",
         "<bg=blue;fg=white>  from the mautic/recommended-project template!          </>",
         "<bg=blue;fg=white>                                                         </>",
-        "", 
+        "",
         "<bg=yellow;fg=black>Next steps</>:",
         "  * Install Mautic",
         "  * Read the user guide",
