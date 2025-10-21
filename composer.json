@@ -27,7 +27,7 @@
   ],
   "require": {
     "composer/installers": "^2.3",
-    "mautic/core-composer-scaffold": "4.x-dev",
+    "mautic/core-composer-scaffold": "1.0.0",
     "mautic/core-lib": "7.x-dev",
     "mautic/core-project-message": "4.x-dev",
     "mautic/grapes-js-builder-bundle": "7.x-dev",
