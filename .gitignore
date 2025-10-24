@@ -1,0 +1,48 @@
+# Mautic specific
+/docroot/
+/vendor/
+/node_modules/
+/var/
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/build/
+/dist/
+
+# Composer
+composer.phar
+composer.lock
+
+# NPM
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# Temporary files
+/tmp/
+*.tmp
+*.cache
+
+# Railway
+.railway/
+
+# Backups
+*.sql
+*.sql.gz
+/backups/

@@ -1,0 +1,26 @@
+# Nixpacks configuration for Mautic 6 on Railway
+# This file configures the build process when using Nixpacks builder
+
+[phases.setup]
+nixPkgs = ["...", "php83", "php83Packages.composer", "nodejs_20", "nginx"]
+
+[phases.install]
+cmds = [
+    "composer install --no-dev --optimize-autoloader --no-interaction",
+    "npm ci --prefer-offline --no-audit"
+]
+
+[phases.build]
+cmds = [
+    "npx patch-package",
+    "php bin/console mautic:assets:generate --no-interaction || echo 'Assets will be generated after installation'"
+]
+
+[start]
+cmd = "/app/docker-entrypoint.sh"
+
+[variables]
+PHP_MEMORY_LIMIT = "512M"
+PHP_MAX_EXECUTION_TIME = "300"
+PHP_UPLOAD_MAX_FILESIZE = "64M"
+PHP_POST_MAX_SIZE = "64M"

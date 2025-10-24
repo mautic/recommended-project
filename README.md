@@ -1,9 +1,76 @@
-# Composer template for Mautic projects
+# Mautic 6 - Railway Deployment Template
 
-This project template provides a starter kit for managing your Mautic
-dependencies with [Composer](https://getcomposer.org/).
+**Production-ready Mautic 6 template optimized for Railway.app deployment**
 
-## Usage
+This is a comprehensive, production-ready Mautic 6 deployment template designed specifically for non-technical email marketers who want to self-host Mautic on Railway.app. It includes all essential configurations, supports all major Email Service Providers (ESPs) via Symfony Mailer, and provides step-by-step deployment guides.
+
+## Quick Start
+
+Deploy Mautic 6 to Railway in 20 minutes: **[→ See Quick Start Guide](./QUICKSTART.md)**
+
+## What's Included
+
+✅ **Production-Ready Mautic 6** with all official plugins and themes
+✅ **All Symfony Mailer ESP Integrations** (SendGrid, Mailgun, Postmark, SES, Resend, and 10+ more)
+✅ **Railway.app Optimized** with Dockerfile, nginx, and PHP-FPM configuration
+✅ **Comprehensive Documentation** for non-technical users
+✅ **AI-Powered Monitoring** solution with automated bug fixing
+✅ **Database & Redis Support** with automatic configuration
+✅ **Cron Job Setup Guides** for multiple platforms
+✅ **Step-by-Step Video Guide Outline** for visual learners
+
+## For Email Marketers (Non-Technical Users)
+
+This template was built for you! No coding experience required.
+
+**Start here:**
+1. 📖 [Quick Start Guide](./QUICKSTART.md) - Deploy in 20 minutes
+2. 📚 [Full Deployment Guide](./DEPLOYMENT_GUIDE.md) - Detailed step-by-step instructions
+3. ⏰ [Cron Job Setup](./CRON_SETUP.md) - Set up automated tasks
+4. 🤖 [AI Monitoring](./AI_MONITORING_SOLUTION.md) - Automated monitoring and bug fixes
+
+**Estimated Monthly Cost:** $5-40 depending on email volume (see [cost estimates](./DEPLOYMENT_GUIDE.md#cost-estimates))
+
+---
+
+## For Developers
+
+This is a Composer-based project template for managing Mautic 6 dependencies with production-ready deployment configurations.
+
+## Railway Deployment (Recommended)
+
+### Prerequisites
+- GitHub account
+- Railway.app account
+- Email service provider account (SendGrid, Mailgun, etc.)
+
+### Deployment Steps
+
+1. **Fork this repository** to your GitHub account
+
+2. **Deploy to Railway:**
+   - Go to [Railway.app](https://railway.app/)
+   - Click "New Project" → "Deploy from GitHub repo"
+   - Select your forked repository
+   - Add MySQL/MariaDB database
+   - Add Redis (optional but recommended)
+
+3. **Configure environment variables:**
+   - See [.env.example](.env.example) for all options
+   - Required: `APP_SECRET`, `MAUTIC_URL`, `MAILER_DSN`, `MAILER_FROM_EMAIL`
+
+4. **Complete installation:**
+   - Visit your Railway URL
+   - Follow the Mautic setup wizard
+
+5. **Set up cron jobs:**
+   - See [CRON_SETUP.md](./CRON_SETUP.md) for detailed instructions
+
+**Full guide:** [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
+
+---
+
+## Traditional Composer Installation
 
 First you need to install [Composer v2](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
@@ -29,6 +96,40 @@ The `composer create-project` command passes ownership of all files to the
 project that is created. You should create a new git repository, and commit
 all files not excluded by the .gitignore file.
 
+## Key Features of This Template
+
+### Email Service Provider Support
+
+This template includes all Symfony Mailer bridges for seamless ESP integration:
+
+| Provider | Package | Configuration |
+|----------|---------|---------------|
+| **SendGrid** | symfony/sendgrid-mailer | See [.env.example](.env.example#L75) |
+| **Mailgun** | symfony/mailgun-mailer | See [.env.example](.env.example#L87) |
+| **Postmark** | symfony/postmark-mailer | See [.env.example](.env.example#L99) |
+| **Amazon SES** | symfony/amazon-mailer | See [.env.example](.env.example#L107) |
+| **Mailjet** | symfony/mailjet-mailer | See [.env.example](.env.example#L119) |
+| **SparkPost** | symfony/sparkpost-mailer | See [.env.example](.env.example#L128) |
+| **Brevo** | symfony/brevo-mailer | See [.env.example](.env.example#L137) |
+| **Resend** | symfony/resend-mailer | See [.env.example](.env.example#L154) |
+| And 8+ more | | Full list in [.env.example](.env.example) |
+
+### Production Optimizations
+
+- **Nginx + PHP-FPM** configuration for optimal performance
+- **OpCache** enabled with production settings
+- **Redis support** for caching and sessions
+- **Automated health checks** for Railway
+- **Security headers** and best practices
+- **Docker multi-stage builds** for smaller image sizes
+
+### Automated Background Tasks
+
+- **Supervisor** manages nginx and PHP-FPM
+- **Cron job guides** for multiple platforms
+- **Health monitoring** and automatic recovery
+- **AI-powered bug detection** and fixing (optional)
+
 ## What does the template do?
 
 When installing the given `composer.json` some tasks are taken care of:
@@ -38,8 +139,10 @@ When installing the given `composer.json` some tasks are taken care of:
   instead of the one provided by Mautic (`docroot/vendor/autoload.php`).
 * Plugins (packages of type `mautic-plugin`) will be placed in `docroot/plugins/`
 * Themes (packages of type `mautic-theme`) will be placed in `docroot/themes/`
+* All 16 Symfony Mailer ESP integrations are pre-installed
 * Creates `docroot/media`-directory.
 * Creates environment variables based on your .env file. See [.env.example](.env.example).
+* Docker configuration for Railway deployment included
 
 ## Updating Mautic Core
 
@@ -156,3 +259,141 @@ In following examples, we will change `docroot` into `public`.
 * Do a find and replace in the `composer.json` file to change `docroot/` into `public/`.
 * review the changes in the `composer.json` file to ensure there are no unintentional replacements.
 * run `composer update --lock` to ensure the autoloader is aware of the changed folder.
+
+---
+
+## Email Service Provider Configuration
+
+This template supports all major ESPs out of the box. Simply configure your `MAILER_DSN` environment variable.
+
+### Popular ESP Examples
+
+**SendGrid (Recommended for beginners):**
+```env
+MAILER_DSN=sendgrid+api://YOUR_API_KEY@default
+```
+
+**Mailgun:**
+```env
+MAILER_DSN=mailgun+https://API_KEY:DOMAIN@default?region=us
+```
+
+**Amazon SES:**
+```env
+MAILER_DSN=ses+smtp://ACCESS_KEY:SECRET_KEY@default?region=us-east-1
+```
+
+**Generic SMTP (any provider):**
+```env
+MAILER_DSN=smtp://username:password@smtp.example.com:587?encryption=tls
+```
+
+See [.env.example](.env.example) for all 16+ supported providers with detailed configuration.
+
+---
+
+## AI-Powered Monitoring (Optional)
+
+Set up automated monitoring and bug fixing with AI:
+
+### Option 1: GitHub Actions + Claude AI (Recommended)
+- Monitors your Railway deployment every 15 minutes
+- Analyzes logs when issues are detected
+- Creates pull requests with automatic fixes
+- **Cost:** ~$20/month
+- **Setup:** [AI_MONITORING_SOLUTION.md](./AI_MONITORING_SOLUTION.md)
+
+### Option 2: Railway Webhooks
+- Simple webhook-based monitoring
+- Automatic restarts and rollbacks
+- **Cost:** ~$10/month
+- **Setup:** [AI_MONITORING_SOLUTION.md#option-2](./AI_MONITORING_SOLUTION.md#option-2-railway-monitoring--webhook-automation)
+
+---
+
+## Documentation
+
+| Document | Description | Audience |
+|----------|-------------|----------|
+| [QUICKSTART.md](./QUICKSTART.md) | Deploy in 20 minutes | Everyone |
+| [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) | Comprehensive deployment guide | Non-technical users |
+| [CRON_SETUP.md](./CRON_SETUP.md) | Background task configuration | Everyone |
+| [AI_MONITORING_SOLUTION.md](./AI_MONITORING_SOLUTION.md) | Automated monitoring & fixes | Advanced users |
+| [.env.example](.env.example) | All environment variables | Everyone |
+| README.md (this file) | Project overview | Everyone |
+
+---
+
+## Project Structure
+
+```
+recommended-project-6/
+├── .env.example                    # Environment configuration template
+├── .gitignore                      # Git ignore rules
+├── composer.json                   # Composer dependencies (includes all ESP packages)
+├── Dockerfile                      # Railway-optimized Docker image
+├── railway.json                    # Railway deployment config
+├── nixpacks.toml                   # Alternative build config
+├── railway.toml                    # Railway advanced config
+├── docker/
+│   ├── nginx/
+│   │   ├── nginx.conf             # Nginx main configuration
+│   │   └── default.conf           # Mautic site configuration
+│   ├── php-fpm/
+│   │   └── www.conf               # PHP-FPM pool configuration
+│   ├── supervisor/
+│   │   └── supervisord.conf       # Process manager config
+│   └── docker-entrypoint.sh       # Container startup script
+├── QUICKSTART.md                   # 20-minute deployment guide
+├── DEPLOYMENT_GUIDE.md             # Full deployment guide
+├── CRON_SETUP.md                   # Cron job setup guide
+├── AI_MONITORING_SOLUTION.md       # AI monitoring guide
+└── README.md                       # This file
+```
+
+---
+
+## Support
+
+### Community Resources
+- **Mautic Documentation:** https://docs.mautic.org/
+- **Mautic Forum:** https://forum.mautic.org/
+- **Mautic Slack:** https://www.mautic.org/slack
+- **Railway Documentation:** https://docs.railway.app/
+
+### Getting Help
+- **General Mautic Questions:** [Mautic Forum](https://forum.mautic.org/)
+- **Deployment Issues:** [Railway Support](https://railway.app/help)
+- **ESP Configuration:** Check [.env.example](.env.example)
+- **Bugs:** [GitHub Issues](../../issues)
+
+---
+
+## Contributing
+
+Contributions are welcome! Please:
+1. Fork this repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+---
+
+## License
+
+GPL-2.0-or-later (same as Mautic)
+
+---
+
+## Credits
+
+**Created for email marketers seeking control over their email marketing automation.**
+
+- Based on official [Mautic Recommended Project](https://github.com/mautic/recommended-project)
+- Optimized for [Railway.app](https://railway.app/) deployment
+- Includes all [Symfony Mailer](https://symfony.com/doc/current/mailer.html) integrations
+- AI monitoring powered by [Anthropic Claude](https://www.anthropic.com/)
+
+---
+
+**Ready to deploy?** → [Start with the Quick Start Guide](./QUICKSTART.md)
