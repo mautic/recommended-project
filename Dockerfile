@@ -29,9 +29,6 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     # ZIP support
     libzip-dev \
-    # IMAP for email monitoring (optional but recommended)
-    libc-client-dev \
-    libkrb5-dev \
     # Database client
     default-mysql-client \
     # SSL/TLS
@@ -40,15 +37,15 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Configure and install PHP extensions
+# Note: IMAP extension removed (requires unavailable packages in newer Debian)
+# Modern ESPs use webhooks for bounce/complaint handling, making IMAP unnecessary
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
-    && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install -j$(nproc) \
     bcmath \
     gd \
     intl \
     pdo_mysql \
     zip \
-    imap \
     opcache \
     exif
 

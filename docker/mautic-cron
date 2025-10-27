@@ -23,8 +23,10 @@ MAUTIC_ROOT=/var/www/html
 # Process message queue (imports, webhooks, etc.) - runs every 5 minutes
 */5 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:queue:process --quiet --no-interaction
 
-# Fetch email replies (if IMAP monitoring is configured) - runs every 10 minutes
-*/10 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:email:fetch --quiet --no-interaction
+# Fetch email replies via IMAP - DISABLED (IMAP extension not installed)
+# Most modern ESPs use webhooks for bounce/complaint handling instead
+# Uncomment below if you install IMAP extension separately
+# */10 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:email:fetch --quiet --no-interaction
 
 # Process webhooks - runs every 5 minutes
 */5 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:webhooks:process --quiet --no-interaction
