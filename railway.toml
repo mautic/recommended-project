@@ -1,0 +1,12 @@
+# Inbox SOS - Mautic 6 Railway.com Template Configuration
+# Production-ready email marketing automation platform
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+healthcheckPath = "/s/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

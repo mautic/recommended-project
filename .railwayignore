@@ -1,0 +1,52 @@
+# Inbox SOS - Railway.com Ignore File
+# Excludes unnecessary files from Railway deployment to reduce build size
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation (keep only essential docs)
+docs/development
+*.md
+!README.md
+!docs/ESP_CONFIGURATION.md
+!docs/DEPLOYMENT_GUIDE.md
+
+# IDE
+.idea
+.vscode
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Tests
+tests/
+phpunit.xml
+.phpunit.result.cache
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+bitbucket-pipelines.yml
+
+# Development files
+.env.local
+.env.*.local
+
+# Node modules are built during deployment
+node_modules/
+
+# Temporary files
+var/cache/*
+var/logs/*
+var/tmp/*
+docroot/media/*
+*.log
+
+# Composer lock and vendor are managed during build
+# (commented out because we need these)
+# composer.lock
+# vendor/

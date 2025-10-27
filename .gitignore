@@ -1,0 +1,65 @@
+# Inbox SOS - Git Ignore File
+
+# Environment variables (contains secrets)
+.env
+.env.local
+.env.*.local
+
+# Mautic directories
+/docroot/
+/var/
+/vendor/
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Composer
+composer.lock
+composer.phar
+
+# IDE and editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# PHPUnit
+.phpunit.result.cache
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Railway local config (if any)
+.railway/
+
+# Keep these directories structure but ignore contents
+!/var/.gitkeep
+!/docroot/media/.gitkeep
