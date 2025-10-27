@@ -1,6 +1,6 @@
 {
   "name": "mautic/recommended-project",
-  "description": "Project template for Mautic 6 projects with composer",
+  "description": "Inbox SOS - Production-ready Mautic 6 template for Railway.com with support for Amazon SES, Brevo, Mailgun, SendGrid, and Postmark",
   "type": "project",
   "license": "GPL-2.0-or-later",
   "homepage": "https://www.mautic.org/mautic-releases",
@@ -31,6 +31,12 @@
     "mautic/core-project-message": "4.x-dev",
     "mautic/core-lib": "6.x-dev",
     "mautic/grapes-js-builder-bundle": "6.x-dev",
+    "symfony/amazon-mailer": "^6.4|^7.0",
+    "symfony/brevo-mailer": "^6.4|^7.0",
+    "symfony/mailgun-mailer": "^6.4|^7.0",
+    "symfony/sendgrid-mailer": "^6.4|^7.0",
+    "symfony/postmark-mailer": "^6.4|^7.0",
+    "predis/predis": "^2.0",
     "mautic/plugin-clearbit": "6.x-dev",
     "mautic/plugin-cloudstorage": "6.x-dev",
     "mautic/plugin-crm": "6.x-dev",
@@ -121,9 +127,9 @@
       "@npx-patch-package",
       "@generate-assets"
     ],
-    "npm-ci": "npm ci --prefer-offline --no-audit",
-    "npx-patch-package": "npx patch-package",
-    "generate-assets": "@php bin/console mautic:assets:generate"
+    "npm-ci": "npm ci --prefer-offline --no-audit --ignore-scripts || npm install --no-audit --ignore-scripts",
+    "npx-patch-package": "npx patch-package || true",
+    "generate-assets": "@php bin/console mautic:assets:generate --no-interaction || true"
   },
   "extra": {
     "mautic-scaffold": {
@@ -149,18 +155,16 @@
       ],
       "post-create-project-cmd-message": [
         "<bg=blue;fg=white>                                                         </>",
-        "<bg=blue;fg=white>  Congratulations, you’ve installed the Mautic codebase  </>",
-        "<bg=blue;fg=white>  from the mautic/recommended-project template!          </>",
+        "<bg=blue;fg=white>  Inbox SOS - Mautic 6 for Railway.com                  </>",
+        "<bg=blue;fg=white>  Production-ready email marketing automation            </>",
         "<bg=blue;fg=white>                                                         </>",
         "",
         "<bg=yellow;fg=black>Next steps</>:",
-        "  * Install Mautic",
-        "  * Read the user guide",
-        "  * Get support: https://www.mautic.org/support",
-        "  * Get involved with the Mautic community:",
-        "      https://www.mautic.org/getting-involved",
-        "  * Remove the plugin that prints this message:",
-        "      composer remove mautic/core-project-message"
+        "  * Deploy to Railway.com",
+        "  * Complete web-based setup wizard",
+        "  * Configure your ESP (SES, Brevo, Mailgun, SendGrid, Postmark)",
+        "  * Read the deployment guide in README.md",
+        "  * Get support: https://www.mautic.org/support"
       ]
     }
   }

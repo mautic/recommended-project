@@ -1,0 +1,46 @@
+# Inbox SOS - Mautic 6 Cron Jobs Configuration
+# Optimized for production email marketing workloads
+# These jobs run in the background to process campaigns, emails, and segments
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Mautic installation directory
+MAUTIC_ROOT=/var/www/html
+
+# Process scheduled campaigns - runs every minute (critical for time-sensitive campaigns)
+* * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:campaigns:trigger --quiet --no-interaction
+
+# Send scheduled emails and broadcasts - runs every minute (critical for deliverability)
+* * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:emails:send --quiet --no-interaction
+
+# Update contact segments - runs every 15 minutes (optimized for performance)
+*/15 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:segments:update --quiet --no-interaction
+
+# Rebuild campaigns based on segment membership - runs every 15 minutes
+*/15 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:campaigns:rebuild --quiet --no-interaction
+
+# Process message queue (imports, webhooks, etc.) - runs every 5 minutes
+*/5 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:queue:process --quiet --no-interaction
+
+# Fetch email replies via IMAP - DISABLED (IMAP extension not installed)
+# Most modern ESPs use webhooks for bounce/complaint handling instead
+# Uncomment below if you install IMAP extension separately
+# */10 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:email:fetch --quiet --no-interaction
+
+# Process webhooks - runs every 5 minutes
+*/5 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:webhooks:process --quiet --no-interaction
+
+# Update MaxMind GeoLite2 IP database (if using IP geolocation) - runs weekly on Sunday at 2 AM
+0 2 * * 0 www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:iplookup:download --quiet --no-interaction
+
+# Clean up old data (run maintenance tasks) - runs daily at 3 AM
+0 3 * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:maintenance:cleanup --days-old=90 --quiet --no-interaction
+
+# Update social monitoring - runs every 30 minutes (if using social media features)
+*/30 * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:social:monitoring --quiet --no-interaction
+
+# Process broadcast messages from queue - runs every minute for immediate delivery
+* * * * * www-data /usr/local/bin/php ${MAUTIC_ROOT}/bin/console mautic:broadcasts:send --quiet --no-interaction
+
+# Empty line required at end of cron file

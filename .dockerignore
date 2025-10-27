@@ -1,0 +1,52 @@
+# Inbox SOS - Docker Build Ignore
+# Excludes files that shouldn't be copied into the Docker image
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation (keep only essential docs in image)
+*.md
+!README.md
+docs/
+
+# IDE and editor files
+.idea
+.vscode
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Environment files (configured via Railway variables)
+.env
+.env.local
+.env.*.local
+
+# Tests (not needed in production)
+tests/
+phpunit.xml
+.phpunit.result.cache
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+bitbucket-pipelines.yml
+
+# Temporary and cache files
+var/cache/*
+var/logs/*
+var/tmp/*
+docroot/media/*
+*.log
+
+# Node modules (installed during build)
+node_modules/
+
+# Dependencies (installed during build)
+vendor/
+
+# Railway files
+.railwayignore
