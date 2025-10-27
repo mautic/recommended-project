@@ -95,7 +95,9 @@ RUN chmod 0644 /etc/cron.d/mautic-cron && crontab /etc/cron.d/mautic-cron
 COPY . /var/www/html/
 
 # Install Composer dependencies (production optimized)
-RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+# Ignore IMAP platform requirement since it's not available in Debian Trixie
+# Modern ESPs use webhooks, making IMAP unnecessary for bounce handling
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --ignore-platform-req=ext-imap
 
 # Create required directories with proper permissions
 RUN mkdir -p \
