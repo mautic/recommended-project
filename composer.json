@@ -124,9 +124,13 @@
     ],
     "npm-ci": "npm ci --prefer-offline --no-audit",
     "npx-patch-package": "npx patch-package",
-    "generate-assets": "@php bin/console mautic:assets:generate"
+    "generate-assets": [
+      "@php bin/console mautic:assets:generate",
+      "@php bin/console assets:install --symlink --relative docroot/"
+    ]
   },
   "extra": {
+    "public-dir": "docroot",
     "mautic-scaffold": {
       "locations": {
         "web-root": "docroot/"
